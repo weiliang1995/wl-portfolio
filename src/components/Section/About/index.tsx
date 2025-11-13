@@ -1,18 +1,19 @@
-import React from "react";
+import { PageID } from '@/utils/enum';
 
-type Props = {};
+import image from '@/assets/imag.jpg';
 
-const About = (props: Props) => {
+const About = () => {
   return (
-    <div className="flex flex-col w-full md:flex-row gap-4 md:w-3/4 md:justify-between md:place-items-start">
-      <div className="w-1/4">Image</div>
-      <div className="text-center text-amber-800 flex flex-col">
-        <h1 className="text-4xl font-bold text-shadow-xs mb-8">About Me</h1>
-        <p className="text-2xl mb-2">William Kuik</p>
-        <p className="text-amber-600 mb-1">
-          Frontend Engineer @ <strong className="text-amber-800">Bybit</strong>
-        </p>
-        <p className="">Description</p>
+    <div className="container px-4 mx-auto">
+      <div className="flex flex-wrap -mx-4">
+        <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+          <img
+            className="w-full h-96 object-cover"
+            src=""
+            alt="profile picture"
+          />
+          <div className="w-full "></div>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-export enum NavTitle {
+export enum PageID {
     About = "About Me",
     Experience = "Experience",
     Education = "Education",

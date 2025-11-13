@@ -1,42 +1,45 @@
-import { useState, useEffect } from "react";
-import Section from "./components/Section";
-import About from "./components/Section/About";
-import { NavTitle } from "./utils/enum";
-import throttle from "lodash.throttle";
-import Navbar from "./components/Navbar";
-import Experience from "./components/Section/Experience";
-import Education from "./components/Section/Education";
-import Contact from "./components/Section/Contact";
+import { useState, useEffect } from 'react';
+import Section from './components/Section';
+import About from './components/Section/About';
+import { PageID } from './utils/enum';
+import throttle from 'lodash.throttle';
+import Navbar from './components/Navbar';
+import Experience from './components/Section/Experience';
+import Education from './components/Section/Education';
+import Contact from './components/Section/Contact';
+import BackToTop from './components/BackToTop';
+import Cover from './components/Section/Cover';
 
 function App() {
-  
-  const [isTop, setIsTop] = useState(true);
-
+  const [isTop, setIsTop] = useState(window.scrollY === 0);
+  console.log('isTop', isTop);
   useEffect(() => {
     const handleScroll = throttle(() => {
       setIsTop(window.scrollY === 0);
-    }, 100)
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    }, 100);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
       <Navbar isTop={isTop} />
-      <div className="px-12 py-6 w-full flex flex-col justify-center items-center">
-        <Section id={NavTitle.About} className="h-dvh">
-          <About />
-        </Section>
-        <Section id={NavTitle.Experience}>
-          <Experience />
-        </Section>
-        <Section id={NavTitle.Education}>
-          <Education />
-        </Section>
-        <Section id={NavTitle.Contact}>
-          <Contact />
-        </Section>
-      </div>
+      <Section id={'cover'}>
+        <Cover />
+      </Section>
+      <Section id={PageID.About}>
+        <About />
+      </Section>
+      <Section id={PageID.Experience}>
+        <Experience />
+      </Section>
+      <Section id={PageID.Education}>
+        <Education />
+      </Section>
+      <Section id={PageID.Contact}>
+        <Contact />
+      </Section>
+      {!isTop && <BackToTop />}
     </>
   );
 }
