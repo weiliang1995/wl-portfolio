@@ -1,42 +1,42 @@
-import "./App.css";
+import { useState, useEffect } from "react";
+import Section from "./components/Section";
+import About from "./components/Section/About";
+import { NavTitle } from "./utils/enum";
+import throttle from "lodash.throttle";
+import Navbar from "./components/Navbar";
+import Experience from "./components/Section/Experience";
+import Education from "./components/Section/Education";
+import Contact from "./components/Section/Contact";
 
 function App() {
-  const onNavClick = (id) => {};
+  
+  const [isTop, setIsTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = throttle(() => {
+      setIsTop(window.scrollY === 0);
+    }, 100)
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
     <>
-      <nav className="bg-amber-400 px-12 py-6 flex items-center justify-between">
-        <div>My Portfolio</div>
-        <div className="flex gap-4">
-          <span
-            className="hover:text-amber-100 active:hover:text-amber-200 hover:cursor-pointer"
-            onClick={() => onNavClick("about-me")}
-          >
-            About Me
-          </span>
-          <span
-            className="hover:text-amber-100 active:hover:text-amber-200 hover:cursor-pointer"
-            onClick={() => onNavClick("experience")}
-          >
-            Experience
-          </span>
-          <span
-            className="hover:text-amber-100 active:hover:text-amber-200 hover:cursor-pointer"
-            onClick={() => onNavClick("education")}
-          >
-            Education
-          </span>
-          <span
-            className="hover:text-amber-100 active:hover:text-amber-200 hover:cursor-pointer"
-            onClick={() => onNavClick("contact")}
-          >
-            Contact
-          </span>
-        </div>
-      </nav>
-      <section id="about-me"></section>
-      <section id="experience"></section>
-      <section id="education"></section>
-      <section id="contact"></section>
+      <Navbar isTop={isTop} />
+      <div className="px-12 py-6 w-full flex flex-col justify-center items-center">
+        <Section id={NavTitle.About} className="h-dvh">
+          <About />
+        </Section>
+        <Section id={NavTitle.Experience}>
+          <Experience />
+        </Section>
+        <Section id={NavTitle.Education}>
+          <Education />
+        </Section>
+        <Section id={NavTitle.Contact}>
+          <Contact />
+        </Section>
+      </div>
     </>
   );
 }

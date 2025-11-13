@@ -1,0 +1,1 @@
+export const isH5 = window.innerWidth < 768; 
