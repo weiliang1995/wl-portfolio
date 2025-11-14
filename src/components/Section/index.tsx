@@ -1,4 +1,5 @@
 import React from 'react';
+import { PageID } from '@/utils/enum';
 
 type Props = {
   id: string | PageID;
@@ -8,7 +9,7 @@ type Props = {
 
 const Section = ({ id, className, children }: Props) => {
   return (
-    <section id={id} className={`w-full h-full ${className}`}>
+    <section id={id} className={`py-20 w-full h-full ${className}`}>
       {children}
     </section>
   );

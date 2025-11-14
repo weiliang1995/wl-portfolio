@@ -14,14 +14,14 @@ const Navbar = ({ isTop }: Props) => {
   const handleToggleMenu = () => {
     setShowH5Menu(!showH5Menu);
   };
-  console.log(isTop, 'isTop', stickyNavbar);
+
   return (
     <>
       <nav
         className={`bg-sky-100 md:px-12 py-6 flex items-center justify-center w-full ${isTop ? '' : stickyNavbar}`}
       >
         <div className="flex items-center justify-end md:justify-center w-5/6">
-          <div className="hidden md:flex gap-4">
+          <div className="hidden md:flex gap-6 text-xl">
             {Object.values(PageID).map((item) => {
               return <Link key={`${item}-Navbar`} link={item} title={item} />;
             })}

@@ -1,9 +1,9 @@
 import { ArrowUpIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
+import { isH5 } from '@/utils/utils';
 const BackToTop = () => {
   return (
-    <div className="sticky bottom-10 left-10">
+    <div className="fixed bottom-10 right-10">
       <Button
         variant="outline"
         size="icon"
@@ -11,7 +11,7 @@ const BackToTop = () => {
         className="flex gap-4 min-w-fit px-4 justify-center items-center text-sky-950"
       >
         <ArrowUpIcon />
-        <p className="text-sky-950 text-shadow-2xs">Back to Top</p>
+        {!isH5 && <p className="text-sky-950 text-shadow-2xs">Back to Top</p>}
       </Button>
     </div>
   );
