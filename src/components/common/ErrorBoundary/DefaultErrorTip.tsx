@@ -1,16 +1,16 @@
-import React from 'react'
+// import React from 'react'
 
-type Props = {
-    handleResetError: () => void;
-}
+// type Props = {
+//     handleResetError: () => void;
+// }
 
-const DefaultErrorTip = ({ handleResetError }: Props) => {
-  return (
-    <div>
-        <img /> 
-        <button onClick={handleResetError}>Reload</button>
-    </div>
-  )
-}
+// const DefaultErrorTip = ({ handleResetError }: Props) => {
+//   return (
+//     <div>
+//         <img />
+//         <button onClick={handleResetError}>Reload</button>
+//     </div>
+//   )
+// }
 
-export default DefaultErrorTip
+// export default DefaultErrorTip
