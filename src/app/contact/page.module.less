@@ -1,0 +1,28 @@
+@import "@/styles/mixins.less";
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 480px;
+}
+
+.item {
+  .card-surface();
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: @space-md;
+  padding: @space-md @space-lg;
+
+  & + & {
+    margin-top: @space-sm;
+  }
+}
+
+.label {
+  color: @color-text-muted;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

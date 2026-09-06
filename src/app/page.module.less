@@ -1,0 +1,54 @@
+@import "@/styles/mixins.less";
+
+.hero {
+  padding: @space-2xl 0 @space-xl;
+}
+
+.heroInner {
+  .content-column();
+}
+
+.eyebrow {
+  margin: 0 0 @space-sm;
+  color: @color-accent;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.name {
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 700;
+
+  .mobile({
+    font-size: 34px;
+  });
+}
+
+.tagline {
+  margin: @space-md 0 0;
+  font-size: 20px;
+  color: @color-text;
+}
+
+.intro {
+  margin: @space-md 0 @space-lg;
+  max-width: 620px;
+  color: @color-text-muted;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: @space-md;
+
+  .mobile({
+    grid-template-columns: minmax(0, 1fr);
+  });
+}
+
+.more {
+  margin: @space-lg 0 0;
+}

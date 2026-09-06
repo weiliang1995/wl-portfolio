@@ -1,0 +1,38 @@
+@import "@/styles/mixins.less";
+
+.bio {
+  max-width: 680px;
+
+  p {
+    margin: 0 0 @space-md;
+    color: @color-text-muted;
+  }
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: @space-lg;
+
+  .mobile({
+    grid-template-columns: minmax(0, 1fr);
+  });
+}
+
+.groupTitle {
+  margin: 0 0 @space-sm;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: @color-text-muted;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: @space-xs;
+}
+
+.group {
+  min-width: 0;
+}

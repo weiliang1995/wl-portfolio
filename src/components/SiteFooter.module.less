@@ -1,0 +1,22 @@
+@import "@/styles/mixins.less";
+
+.footer {
+  margin-top: @space-2xl;
+  border-top: 1px solid @color-border;
+  padding: @space-lg 0;
+}
+
+.inner {
+  .content-column();
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: @color-text-muted;
+  font-size: 13px;
+}
+
+.built {
+  .mobile({
+    display: none;
+  });
+}
